@@ -15,6 +15,7 @@ after_success:
   - docker build -t nicolajniels1/multi-worker ./worker
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - cat /home/travis/.docker/config.json
   # Take those images and push them to docker hub
   - docker push nicolajniels1/multi-client
   - docker push nicolajniels1/multi-nginx
